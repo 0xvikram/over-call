@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Over Call",
-  description: "Practice build: the whole room calls the next ball on Monad",
+  description: "The whole room calls the next cricket ball from their phones, settled live on Monad.",
 };
 
 export default function RootLayout({
