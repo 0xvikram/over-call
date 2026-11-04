@@ -330,3 +330,8 @@ h1, h2 { font-family: var(--font-anton), Impact, sans-serif; font-weight: 400; t
 .speedCard.lime { background: #d4ff3f; border-color: #d4ff3f; }
 .speedCard.lime span { color: #3f3f3f; }
 @media (max-width: 900px) { .speedRow { grid-template-columns: 1fr 1fr; } .speedCard b { font-size: 36px; } }
+/* Leaderboard: plain rank column instead of badges */
+.leaderRow > span:first-child { display: flex; align-items: center; gap: 12px; }
+.rank, .rank.r1, .rank.r2, .rank.r3 { background: none !important; box-shadow: none !important; color: #9a9aa2 !important; width: 22px; height: auto; margin: 0; border-radius: 0; font-family: var(--font-geist-mono), monospace; font-size: 14px; font-weight: 500; justify-content: start; display: inline-block; text-align: left; }
+.leaderRow:first-child { background: #d4ff3f; border-radius: 10px; padding: 8px 10px; border-bottom: 0; }
+.leaderRow:first-child .rank { color: #0b0b0b !important; }
