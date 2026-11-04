@@ -180,3 +180,8 @@ a { color: inherit; }
 .plan h3 { text-transform: uppercase; letter-spacing: .08em; font-size: 13px; }
 @media (max-width: 800px) { .ball { width: 70px; height: 70px; top: 30px; right: 4%; } }
 @media (prefers-reduced-motion: reduce) { .ball, .ticker div { animation: none; } }
+.hero.poster { width: 100vw; margin-left: calc(50% - 50vw); margin-right: 0; padding: 72px 20px 200px; border-radius: 0 0 56px 56px; }
+.ghostWord { bottom: -30px; -webkit-text-stroke: 2px rgba(255,255,255,.28); }
+.poster .stats { margin-top: 8px; }
+.landing { overflow-x: clip; }
+.landing .nav { padding: 20px 0; }
