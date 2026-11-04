@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Anton, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -27,6 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${anton.variable}`}>
+        <header className="siteBar">
+          <Link href="/" className="brand"><span className="brandDot" /> Over Call</Link>
+          <span className="siteTag">Live on Monad Testnet</span>
+        </header>
         {children}
       </body>
     </html>

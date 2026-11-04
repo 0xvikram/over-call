@@ -215,3 +215,75 @@ body:has(.landing) { background: #f4f3ee; color: #0b0b0b; }
 .landing .plan:nth-child(3) { background: #d4ff3f; border-color: #d4ff3f; }
 .landing .plan:nth-child(3) .muted { color: #3f3f3f; }
 .landing .foot { border-top-color: #e3e2db; color: #5f6068; }
+
+/* ===== One light theme across every page (Restocked style) ===== */
+:root {
+  --bg: #f4f3ee; --panel: #ffffff; --panel2: #ffffff; --line: #e3e2db; --text: #0b0b0b; --muted: #5f6068;
+  --accent: #0b0b0b; --lime: #d4ff3f; --pink: #ff2da8; --pitch: #3f6200; --warn: #b0126c;
+  --shadow: 0 1px 2px rgba(11,11,11,.05), 0 8px 24px rgba(11,11,11,.06);
+}
+html, body { background: #f4f3ee !important; color: #0b0b0b; font-family: 'Helvetica Neue', var(--font-geist-sans), Arial, sans-serif; }
+.siteBar { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 18px 24px; }
+.siteBar .brand { text-decoration: none; }
+.brandDot { background: #d4ff3f !important; box-shadow: 0 0 0 2px #0b0b0b !important; }
+.siteTag { font-size: 12px; padding: 5px 10px; border-radius: 999px; background: #e9f8c2; color: #3f6200; border: 1px solid #c9ea7a; }
+body:has(.landing) .siteBar { display: none; }
+h1, h2 { font-family: var(--font-anton), Impact, sans-serif; font-weight: 400; text-transform: uppercase; letter-spacing: .01em; }
+.landing h2 { font-size: 40px; }
+.card h3, .side h2 { font-family: inherit; }
+
+/* Phone + host */
+.phone { padding-top: 8px; }
+.phone > h1, .phone h1 { font-size: 44px; line-height: 1; }
+.phone, .side { }
+.phoneHead { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px; box-shadow: var(--shadow); }
+.nameInput { background: #fff; color: #0b0b0b; border-color: var(--line); box-shadow: var(--shadow); }
+.primary { background: #0b0b0b !important; color: #d4ff3f !important; box-shadow: none !important; border-radius: 999px !important; }
+.pick { background: #fff; color: #0b0b0b; border: 1px solid var(--line); box-shadow: var(--shadow); }
+.pick:not(:disabled):hover { transform: translateY(-2px); border-color: #0b0b0b; }
+.pick.chosen { background: #d4ff3f !important; border-color: #0b0b0b !important; box-shadow: 0 0 0 2px #0b0b0b !important; color: #0b0b0b; }
+.status { color: var(--pink); }
+
+/* Big screen */
+.screen { min-height: calc(100vh - 70px); padding: 8px 24px 24px; max-width: 1280px; margin: 0 auto; }
+.stage { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 28px; box-shadow: var(--shadow); }
+.stage h1 { font-size: 64px; line-height: 1; }
+.countdown { color: #0b0b0b; background: #d4ff3f; padding: 0 12px; border-radius: 10px; font-size: .6em; vertical-align: middle; }
+.result { color: #0b0b0b; background: #d4ff3f; padding: 0 12px; border-radius: 10px; }
+.side { background: #fff !important; border: 1px solid var(--line); box-shadow: var(--shadow); color: #0b0b0b; }
+.side h2 { font-family: var(--font-anton), Impact, sans-serif; font-size: 26px; }
+.barTrack { background: #eeede7; }
+.barFill { background: #0b0b0b !important; }
+.bar.hit .barFill { background: #86c400 !important; }
+.bar.hit .barLabel { color: #3f6200; }
+.feed li, .leaders li { border-bottom: 1px solid #eceae4; list-style-position: inside; }
+.leaders { padding-left: 0; }
+.leaders li:first-child { font-weight: 700; }
+.qr img { border: 1px solid var(--line); box-shadow: var(--shadow); }
+.qrLink { color: #0b0b0b; }
+.pitch .field { fill: #2f8a4c; }
+.pitch .bowler { fill: #ff2da8; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .screen { grid-template-columns: 1fr; padding: 8px 14px 20px; }
+  .stage { padding: 18px; border-radius: 18px; }
+  .stage h1 { font-size: 40px; }
+  .bar { grid-template-columns: 96px 1fr 36px; font-size: 16px; }
+  .qr img { width: 180px; height: 180px; }
+  .qrLink { font-size: 15px; word-break: break-all; }
+  .landing .hero.poster { padding: 48px 16px 130px; border-radius: 20px; }
+  .landing h2 { font-size: 32px; }
+  .stats { gap: 22px; }
+  .stats b { font-size: 24px; }
+  .ball { width: 56px !important; height: 56px !important; top: 18px !important; }
+  .siteBar { padding: 14px 16px; }
+}
+@media (max-width: 480px) {
+  .poster h1 { font-size: 54px; }
+  .heroCtas a { width: 100%; text-align: center; }
+  .ticker div { font-size: 20px; }
+  .foot { flex-direction: column; }
+  .phone { padding: 8px 14px 24px; }
+  .pick { padding: 18px 6px; font-size: 15px; }
+}
