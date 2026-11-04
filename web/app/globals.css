@@ -185,3 +185,33 @@ a { color: inherit; }
 .poster .stats { margin-top: 8px; }
 .landing { overflow-x: clip; }
 .landing .nav { padding: 20px 0; }
+
+/* Restocked-style light theme for the landing page */
+body:has(.landing) { background: #f4f3ee; color: #0b0b0b; }
+.landing { color: #0b0b0b; font-family: 'Helvetica Neue', var(--font-geist-sans), Arial, sans-serif; }
+.landing .muted, .landing .lead { color: #5f6068; }
+.landing .brandDot { background: #d4ff3f; box-shadow: 0 0 0 2px #0b0b0b; }
+.landing .navLinks a { color: #5f6068; }
+.landing .navLinks .navCta { background: #0b0b0b; color: #d4ff3f; }
+.landing .hero.poster { background: linear-gradient(rgba(11,11,11,.05) 1px, transparent 1px) 0 0/44px 44px, linear-gradient(90deg, rgba(11,11,11,.05) 1px, transparent 1px) 0 0/44px 44px, #ffffff;
+  color: #0b0b0b; border: 1px solid #e3e2db; border-radius: 28px; width: auto; margin: 8px 0 0; padding: 72px 24px 190px; box-shadow: 0 1px 2px rgba(11,11,11,.05), 0 8px 24px rgba(11,11,11,.06); }
+.landing .poster h1 { color: #0b0b0b; text-shadow: none; }
+.landing .poster h1 em { color: #0b0b0b; background: #d4ff3f; display: inline-block; padding: 0 18px; margin-top: 8px; border-radius: 10px; }
+.landing .poster .lead { color: #5f6068; }
+.landing .poster .pill { background: #e9f8c2; color: #3f6200; border-color: #c9ea7a; }
+.landing .poster .primary { background: #0b0b0b; color: #d4ff3f; box-shadow: none; }
+.landing .poster .ghost { color: #0b0b0b; border-color: #0b0b0b; background: transparent; }
+.landing .poster .stats span { color: #5f6068; }
+.landing .ghostWord { -webkit-text-stroke: 2px rgba(11,11,11,.08); }
+.landing .ticker { background: #0b0b0b; color: #d4ff3f; margin: 28px 0 8px; border-radius: 16px; }
+.landing .block { border-top: 1px solid #e3e2db; }
+.landing .num { color: #ff2da8; }
+.landing .card { background: #ffffff; border: 1px solid #e3e2db; box-shadow: 0 1px 2px rgba(11,11,11,.05), 0 8px 24px rgba(11,11,11,.06); }
+.landing .plan:nth-child(1) { background: #ffffff; color: #0b0b0b; border: 1px solid #e3e2db; }
+.landing .plan:nth-child(1) .muted { color: #5f6068; }
+.landing .plan.hot { background: #0b0b0b; color: #f5f5f2; border-color: #0b0b0b; box-shadow: none; }
+.landing .plan.hot .price { color: #d4ff3f; }
+.landing .plan.hot .muted { color: #9d9da3; }
+.landing .plan:nth-child(3) { background: #d4ff3f; border-color: #d4ff3f; }
+.landing .plan:nth-child(3) .muted { color: #3f3f3f; }
+.landing .foot { border-top-color: #e3e2db; color: #5f6068; }
