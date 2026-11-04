@@ -19,16 +19,19 @@ export default function Screen() {
     const head = await publicClient.getBlockNumber();
     if (lastBlock.current === null) lastBlock.current = head;
     if (head > lastBlock.current) {
-      const logs = await publicClient.getContractEvents({
-        ...game,
-        eventName: "Called",
-        fromBlock: lastBlock.current + 1n,
-        toBlock: head,
-      });
-      const byBlock = new Map<bigint, number>();
-      for (const l of logs) byBlock.set(l.blockNumber, (byBlock.get(l.blockNumber) ?? 0) + 1);
-      const rows = [...byBlock].map(([block, calls]) => ({ block, calls }));
-      feed.current = [...rows.reverse(), ...feed.current].slice(0, 8);
+      // Monad's public RPC rejects large log ranges, so only look at the most recent blocks.
+      // A failed log fetch must never stop the score, tally and leaderboard from updating.
+      const MAX_RANGE = 80n;
+      const fromBlock = head - lastBlock.current > MAX_RANGE ? head - MAX_RANGE + 1n : lastBlock.current + 1n;
+      try {
+        const logs = await publicClient.getContractEvents({ ...game, eventName: "Called", fromBlock, toBlock: head });
+        const byBlock = new Map<bigint, number>();
+        for (const l of logs) byBlock.set(l.blockNumber, (byBlock.get(l.blockNumber) ?? 0) + 1);
+        const rows = [...byBlock].map(([block, calls]) => ({ block, calls }));
+        feed.current = [...rows.reverse(), ...feed.current].slice(0, 8);
+      } catch (e) {
+        console.warn("[overcall] call feed skipped", e);
+      }
       lastBlock.current = head;
     }
     const [state, board] = await Promise.all([
