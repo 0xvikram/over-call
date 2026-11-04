@@ -47,7 +47,7 @@ export default function Home() {
         </div>
         <div className="stats">
           <div><b>0</b><span>wallets or gas needed</span></div>
-          <div><b>&lt;1s</b><span>to settle a call</span></div>
+          <div><b>~0.4s</b><span>per call on Monad</span></div>
           <div><b>100%</b><span>calls verifiable on-chain</span></div>
         </div>
       </section>
@@ -85,11 +85,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="block">
-        <h2>Why Monad</h2>
+      <section className="block speed">
+        <h2>Built on Monad&apos;s speed</h2>
+        <p className="muted sub">
+          A bowler takes about 30 seconds between deliveries, and the call window is only 8 seconds. Every fan&apos;s
+          call has to be confirmed on-chain inside that window. That only works on a chain this fast.
+        </p>
+        <div className="speedRow">
+          <div className="speedCard dark"><b>~0.4s</b><span>Monad block time. A call is on-chain before the fan looks up.</span></div>
+          <div className="speedCard"><b>8s</b><span>Call window per ball. That fits about 20 Monad blocks.</span></div>
+          <div className="speedCard"><b>~12s</b><span>One Ethereum block. The window would close before a single call lands.</span></div>
+          <div className="speedCard lime"><b>10,000</b><span>Transactions a second, the Monad target. Parallel execution means a stadium of calls does not queue.</span></div>
+        </div>
         <div className="grid3">
-          <div className="card"><h3>Fast blocks</h3><p className="muted">A room&apos;s calls land in the few seconds between deliveries.</p></div>
-          <div className="card"><h3>Parallel execution</h3><p className="muted">Hundreds of fans calling at once don&apos;t queue behind each other.</p></div>
+          <div className="card"><h3>Real-time, not batched</h3><p className="muted">Every tap is its own transaction. No off-chain server decides who called first.</p></div>
+          <div className="card"><h3>Gas a fan never sees</h3><p className="muted">Fees are low enough for the venue to cover every call, so players need no wallet or tokens.</p></div>
           <div className="card"><h3>Fair by design</h3><p className="muted">The contract closes calls before the reveal. Late calls are rejected on-chain.</p></div>
         </div>
       </section>

@@ -54,9 +54,15 @@ export default function Screen() {
   return (
     <main className="screen">
       <section className="stage">
-        <p className="muted">
-          {match.batting} v {match.bowling} · {match.title}
-        </p>
+        <div className="scoreStrip">
+          <span className="teams">{match.batting} <i>v</i> {match.bowling}</span>
+          <span className="liveDot">LIVE ON MONAD · ~0.4s BLOCKS</span>
+        </div>
+        <div className="statRow">
+          <div className="stat"><b>{players}</b><span>players</span></div>
+          <div className="stat"><b>{totalCalls}</b><span>calls this ball</span></div>
+          <div className="stat"><b>#{head.toString()}</b><span>latest block</span></div>
+        </div>
         {state.ballId === 0n ? (
           <>
             <h1>Scan to play</h1>
@@ -95,7 +101,6 @@ export default function Screen() {
             </div>
           </>
         )}
-        <p className="muted">{players} players joined</p>
       </section>
 
       <aside className="side">
@@ -106,20 +111,20 @@ export default function Screen() {
           </div>
         )}
         <h2>Calls landing on Monad</h2>
-        <p className="muted small">Latest block #{head.toString()}</p>
         <ul className="feed">
           {feed.current.length === 0 && <li className="muted">No calls yet</li>}
           {feed.current.map((r) => (
-            <li key={r.block.toString()}>
-              Block #{r.block.toString()} · <strong>{r.calls}</strong> call{r.calls === 1 ? "" : "s"}
+            <li key={r.block.toString()} className="feedRow">
+              <span className="mono">#{r.block.toString()}</span>
+              <span className="callsPill">{r.calls} call{r.calls === 1 ? "" : "s"}</span>
             </li>
           ))}
         </ul>
         <h2>Leaderboard</h2>
         <ol className="leaders">
-          {leaders.map((l) => (
-            <li key={l.a}>
-              <span>{l.name}</span>
+          {leaders.map((l, i) => (
+            <li key={l.a} className="leaderRow">
+              <span><span className={`rank r${i + 1}`}>{i + 1}</span>{l.name}</span>
               <span>
                 {l.pts.toString()} {l.streak > 1n ? `🔥${l.streak.toString()}` : ""}
               </span>
