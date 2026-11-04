@@ -147,3 +147,36 @@ a { color: inherit; }
   .stage h1 { font-size: 34px; }
   .bar { grid-template-columns: 110px 1fr 40px; font-size: 18px; }
 }
+
+/* Poster hero (reference style) */
+.landing .nav { position: relative; z-index: 2; }
+.hero.poster { position: relative; max-width: none; text-align: center; margin: 0 -20px; padding: 80px 20px 90px; overflow: hidden;
+  background:
+    linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px) 0 0/40px 40px,
+    linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px) 0 0/40px 40px,
+    linear-gradient(180deg, #8fb3ff 0%, #6f8fe8 55%, #836ef9 100%);
+  border-radius: 0 0 48px 48px; color: white; }
+.poster h1 { font-family: var(--font-anton), Impact, sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(64px, 12vw, 150px); line-height: .92; letter-spacing: 0; position: relative; z-index: 1; text-shadow: 0 6px 30px rgba(40,20,120,.35); }
+.poster h1 em { -webkit-text-fill-color: initial; background: none; color: #fff7c2; display: block; }
+.poster .lead { color: rgba(255,255,255,.9); margin: 18px auto 0; position: relative; z-index: 1; }
+.poster .pill { background: rgba(255,255,255,.2); color: white; border-color: rgba(255,255,255,.4); position: relative; z-index: 1; }
+.poster .heroCtas { justify-content: center; position: relative; z-index: 1; }
+.poster .primary { background: white; color: #1b1440; box-shadow: 0 10px 30px -10px rgba(0,0,0,.5); border-radius: 999px; }
+.poster .ghost { color: white; border-color: rgba(255,255,255,.6); border-radius: 999px; background: rgba(255,255,255,.08); }
+.poster .stats { justify-content: center; position: relative; z-index: 1; }
+.poster .stats span { color: rgba(255,255,255,.85); }
+.ghostWord { position: absolute; left: 0; right: 0; bottom: -18px; font-family: var(--font-anton), Impact, sans-serif; font-size: clamp(90px, 20vw, 260px); line-height: 1; color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,.35); pointer-events: none; }
+.ball { position: absolute; width: 120px; height: 120px; border-radius: 50%; right: 8%; top: 90px; background: radial-gradient(circle at 35% 30%, #ff8a8a, #c41d2b 55%, #6e0b14); box-shadow: 0 30px 60px -10px rgba(60,0,10,.6); animation: float 4s ease-in-out infinite; }
+.ball::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border-left: 3px dashed rgba(255,255,255,.75); transform: rotate(35deg) scaleX(.35); }
+@keyframes float { 50% { transform: translateY(-16px) rotate(20deg); } }
+.ticker { margin: 28px -20px 8px; background: #f4f2ff; color: #0b0a14; overflow: hidden; white-space: nowrap; padding: 14px 0; }
+.ticker div { display: inline-flex; gap: 36px; animation: tick 22s linear infinite; font-family: var(--font-anton), Impact, sans-serif; font-size: 26px; text-transform: uppercase; }
+@keyframes tick { to { transform: translateX(-50%); } }
+.plan { border-radius: 24px; }
+.plan:nth-child(1) { background: linear-gradient(180deg, #8fb3ff, #6f8fe8); color: white; border: 0; }
+.plan:nth-child(1) .muted { color: rgba(255,255,255,.85); }
+.plan:nth-child(3) { background: #050409; }
+.plan .price { font-family: var(--font-anton), Impact, sans-serif; font-weight: 400; font-size: 44px; }
+.plan h3 { text-transform: uppercase; letter-spacing: .08em; font-size: 13px; }
+@media (max-width: 800px) { .ball { width: 70px; height: 70px; top: 30px; right: 4%; } }
+@media (prefers-reduced-motion: reduce) { .ball, .ticker div { animation: none; } }

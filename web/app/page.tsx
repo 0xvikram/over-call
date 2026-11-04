@@ -30,10 +30,12 @@ export default function Home() {
         </div>
       </nav>
 
-      <section className="hero">
+      <section className="hero poster">
+        <span className="ghostWord" aria-hidden>CRICKET</span>
+        <span className="ball" aria-hidden />
         <span className="pill">Live on Monad Testnet</span>
         <h1>
-          Turn every cricket ball into a <em>room-wide game</em>.
+          Call the <em>next ball</em>
         </h1>
         <p className="lead">
           Over Call lets a whole crowd call the next delivery from their phones. Every call settles on Monad
@@ -49,6 +51,10 @@ export default function Home() {
           <div><b>100%</b><span>calls verifiable on-chain</span></div>
         </div>
       </section>
+
+      <div className="ticker" aria-hidden>
+        <div>{Array.from({ length: 16 }, (_, i) => <span key={i}>• LET&apos;S PLAY</span>)}</div>
+      </div>
 
       <section className="block">
         <h2>How it works</h2>
