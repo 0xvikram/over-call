@@ -1,0 +1,21 @@
+{
+  "title": "Sample match (made-up practice data)",
+  "batting": "Mumbai XI",
+  "bowling": "Delhi XI",
+  "lineup": ["Rohan", "Imran", "Kavya", "Dev"],
+  "bowlers": ["Arjun", "Kabir"],
+  "balls": [
+    { "label": "1.1", "result": 1, "runs": 0, "note": "Good length, defended" },
+    { "label": "1.2", "result": 3, "runs": 4, "note": "Driven through covers for four" },
+    { "label": "1.3", "result": 2, "runs": 2, "note": "Worked to leg for two" },
+    { "label": "1.4", "result": 1, "runs": 0, "note": "Beaten outside off" },
+    { "label": "1.5", "result": 4, "runs": 0, "how": "bowled", "note": "Bowled! Middle stump" },
+    { "label": "1.6", "result": 2, "runs": 1, "note": "Nudged for a single" },
+    { "label": "2.1", "result": 3, "runs": 6, "note": "Pulled for six" },
+    { "label": "2.2", "result": 1, "runs": 0, "note": "Yorker, dug out" },
+    { "label": "2.3", "result": 2, "runs": 3, "note": "Quick three to deep point" },
+    { "label": "2.4", "result": 4, "runs": 0, "how": "caught", "note": "Caught at long-on" },
+    { "label": "2.5", "result": 1, "runs": 0, "note": "Left alone" },
+    { "label": "2.6", "result": 3, "runs": 4, "note": "Flicked fine for four" }
+  ]
+}

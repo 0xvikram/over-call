@@ -1,0 +1,100 @@
+:root {
+  --bg: #0f1412;
+  --panel: #18201c;
+  --line: #2a3530;
+  --text: #f2f5f3;
+  --muted: #9aa8a1;
+  --accent: #7c5cff; /* Monad purple */
+  --pitch: #3fae6a;
+  --warn: #f2b84b;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-geist-sans), system-ui, sans-serif; }
+h1, h2 { margin: 0 0 12px; }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+.status { color: var(--warn); }
+
+/* Phone and host screens */
+.phone { max-width: 440px; margin: 0 auto; padding: 24px 16px; display: flex; flex-direction: column; gap: 14px; }
+.phoneHead { display: flex; justify-content: space-between; font-weight: 600; }
+.nameInput { padding: 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel); color: var(--text); font-size: 18px; }
+.primary { display: block; text-align: center; padding: 16px; border-radius: 12px; border: 0; background: var(--accent); color: white; font-size: 18px; font-weight: 600; text-decoration: none; cursor: pointer; }
+.primary:disabled { opacity: 0.4; cursor: default; }
+.big { font-size: 22px; }
+.picks { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.pick { padding: 22px 8px; border-radius: 14px; border: 1px solid var(--line); background: var(--panel); color: var(--text); font-size: 17px; font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; }
+.pick:disabled { opacity: 0.45; cursor: default; }
+.pick.chosen { opacity: 1; border-color: var(--accent); background: #2a2350; }
+.emoji { font-size: 26px; }
+
+/* Projector screen */
+.screen { min-height: 100vh; display: grid; grid-template-columns: 2fr 1fr; gap: 24px; padding: 32px; }
+.stage h1 { font-size: 44px; margin-bottom: 4px; }
+.countdown { color: var(--warn); }
+.result { color: var(--pitch); }
+.note { font-size: 22px; margin: 4px 0; }
+.tally { display: flex; flex-direction: column; gap: 8px; margin: 12px 0; }
+.bar { display: grid; grid-template-columns: 160px 1fr 60px; align-items: center; gap: 12px; font-size: 20px; }
+.barTrack { height: 20px; background: var(--panel); border-radius: 8px; overflow: hidden; }
+.barFill { display: block; height: 100%; background: var(--accent); transition: width 0.3s; }
+.bar.hit .barFill { background: var(--pitch); }
+.bar.hit .barLabel { color: var(--pitch); font-weight: 700; }
+.barCount { text-align: right; }
+.side { background: var(--panel); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 8px; }
+.feed, .leaders { margin: 0 0 16px; padding-left: 20px; font-size: 18px; line-height: 1.7; }
+.leaders li span:last-child { float: right; }
+
+/* Animated pitch */
+.situation { font-size: 22px; margin: 0 0 8px; }
+.pitch { width: 100%; max-height: 52vh; display: block; margin: 4px 0 8px; }
+.pitch .field { fill: #1f6b3a; }
+.pitch .inner { fill: none; stroke: rgba(255, 255, 255, 0.18); stroke-dasharray: 6 8; }
+.pitch .rope { fill: none; stroke: rgba(255, 255, 255, 0.85); stroke-width: 3; }
+.pitch .strip { fill: #c9a96b; }
+.pitch .crease { stroke: white; stroke-width: 1.5; }
+.pitch .stump { fill: #f4ead2; }
+.pitch .bail { fill: #f4ead2; transform-box: fill-box; transform-origin: center; }
+.pitch .fielder { fill: #dfe7e2; opacity: 0.8; }
+.pitch .batter { fill: #4aa3ff; stroke: white; stroke-width: 2; }
+.pitch .bowler { fill: var(--accent); stroke: white; stroke-width: 2; }
+.pitch .ball { fill: #ff4b4b; stroke: white; stroke-width: 1.5; }
+.pitch .halo { fill: none; stroke: #ffd166; stroke-width: 2; animation: halo 0.9s 1.55s ease-in-out infinite both; }
+.pitch .outcome { font-size: 44px; font-weight: 800; fill: white; text-anchor: middle; paint-order: stroke; stroke: rgba(0, 0, 0, 0.55); stroke-width: 6px; animation: pop 0.45s 0.45s ease-out both; }
+.pitch .outcome.big { font-size: 72px; fill: #ffd166; }
+.pitch .outcome.out { font-size: 56px; fill: #ff6b6b; }
+.pitch .outcome.subtle { font-size: 22px; font-weight: 500; fill: rgba(255, 255, 255, 0.7); animation: none; stroke-width: 4px; }
+
+.mv { animation: mv var(--d) var(--delay, 0s) ease-out both; }
+.ropeFlash { animation: ropeFlash 0.5s 0.5s ease-in-out 3 both; }
+.catchFlash { animation: catchFlash 0.5s 0.4s ease-in-out 3 both; }
+.stumpsHit .stump { animation: stumpRed 0.4s 0.35s ease-in-out 3 both; }
+.bailL { animation: bailL 0.7s 0.4s ease-out both; }
+.bailR { animation: bailR 0.7s 0.4s ease-out both; }
+
+@keyframes mv { from { transform: translate(var(--x0), var(--y0)); } to { transform: translate(var(--x1), var(--y1)); } }
+@keyframes halo { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
+@keyframes pop { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes ropeFlash { 50% { stroke: #ffd166; stroke-width: 8; } }
+@keyframes catchFlash { 50% { fill: #ffd166; opacity: 1; } }
+@keyframes stumpRed { 50% { fill: #ff4b4b; } }
+@keyframes bailL { to { transform: translate(-26px, -30px) rotate(-200deg); opacity: 0; } }
+@keyframes bailR { to { transform: translate(28px, -24px) rotate(220deg); opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .mv, .bailL, .bailR, .pitch .outcome { animation-duration: 0.01s !important; animation-delay: 0s !important; }
+  .pitch .halo, .ropeFlash, .catchFlash, .stumpsHit .stump { animation: none !important; }
+}
+
+.qr { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 10px; margin: 12px 0 20px; }
+.qr img { background: white; border-radius: 12px; padding: 8px; }
+.qrLink { font-size: 22px; margin: 0; font-family: var(--font-geist-mono), monospace; }
+.cornerQr { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.cornerQr .qr { margin: 0; }
+
+@media (max-width: 800px) {
+  .screen { grid-template-columns: 1fr; padding: 16px; }
+  .stage h1 { font-size: 34px; }
+  .bar { grid-template-columns: 110px 1fr 40px; font-size: 18px; }
+}
